@@ -64,7 +64,7 @@ enum custom_keycodes {
 // fix for mod taps with shifted keys, like KC_PIPE <<<
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case CTL_T(KC_TILD):
+        case ALT_T(KC_TILD):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_TILD); // Send KC_TILD on tap
                 return false;        // Return false to ignore further processing of key
@@ -89,30 +89,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }// >>>
-
-// Tap Dance keycodes <<<
-enum td_keycodes {
-    SFT_CAP // oneshot sft when tapped/held, capslock when doubletap
-};
-
-// Define a type containing as many tapdance states as you need
-typedef enum {
-    TD_NONE,
-    TD_UNKNOWN,
-    TD_SINGLE_TAP,
-    TD_SINGLE_HOLD,
-    TD_DOUBLE_SINGLE_TAP
-} td_state_t;
-
-// Create a global instance of the tapdance state type
-static td_state_t td_state;
-
-// Declare your tapdance functions:
-// Function to determine the current tapdance state
-td_state_t cur_dance(qk_tap_dance_state_t *state);
-// `finished` and `reset` functions for each tapdance keycode
-void sftcap_finished(qk_tap_dance_state_t *state, void *user_data);
-void sftcap_reset(qk_tap_dance_state_t *state, void *user_data);// >>>
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
@@ -164,79 +140,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-// Determine the tapdance state to return <<<
-td_state_t cur_dance(qk_tap_dance_state_t *state) {
-    if (state->count == 1) {
-        if (state->interrupted || !state->pressed) return TD_SINGLE_TAP;
-        else return TD_SINGLE_HOLD;
-    }
-
-    if (state->count == 2) return TD_DOUBLE_SINGLE_TAP;
-    else return TD_UNKNOWN; // Any number higher than the maximum state value you return above
-}
-
-// Handle the possible states for each tapdance keycode you define:
-void sftcap_finished(qk_tap_dance_state_t *state, void *user_data) {
-    td_state = cur_dance(state);
-    switch (td_state) {
-        case TD_SINGLE_TAP:
-            register_code16(OSM(MOD_LSFT));
-            add_oneshot_mods(MOD_BIT(KC_LSFT));
-            //add_mods(MOD_BIT(KC_LSFT));
-            break;
-        case TD_SINGLE_HOLD:
-            register_mods(MOD_BIT(KC_LSFT)); // For a layer-tap key, use `layer_on(_MY_LAYER)` here
-            break;
-        case TD_DOUBLE_SINGLE_TAP: // send caps lock here
-            register_code16(KC_CAPS);
-            break;
-        default:
-            break;
-    }
-}
-
-void sftcap_reset(qk_tap_dance_state_t *state, void *user_data) {
-    switch (td_state) {
-        case TD_SINGLE_TAP:
-            //del_oneshot_mods(MOD_BIT(KC_LSFT)); 
-            //del_mods(MOD_BIT(KC_LSFT)); // For a layer-tap key, use `layer_off(_MY_LAYER)` here
-            break;
-        case TD_SINGLE_HOLD:
-            del_mods(MOD_BIT(KC_LSFT)); // For a layer-tap key, use `layer_off(_MY_LAYER)` here
-            break;
-        case TD_DOUBLE_SINGLE_TAP:
-            unregister_code16(KC_CAPS);
-            break;
-        default:
-            break;
-    }
-}
-
-// Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
-qk_tap_dance_action_t tap_dance_actions[] = {
-    [SFT_CAP] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sftcap_finished, sftcap_reset)
-};// >>>
-
-/*// leader key shenanigans
+// leader key shenanigans
 void leader_start_user(void) {
     // Do something when the leader key is pressed
 }
 
 void leader_end_user(void) {
-    if (leader_sequence_one_key(KC_F)) {
-        // Leader, f => Types the below string
-        SEND_STRING("QMK is awesome.");
-    } else if (leader_sequence_two_keys(KC_D, KC_D)) {
-        // Leader, d, d => Ctrl+A, Ctrl+C
-        SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
-    } else if (leader_sequence_three_keys(KC_D, KC_D, KC_S)) {
-        // Leader, d, d, s => Types the below string
-        SEND_STRING("https://start.duckduckgo.com\n");
-    } else if (leader_sequence_two_keys(KC_A, KC_S)) {
-        // Leader, a, s => GUI+S
-        tap_code16(LGUI(KC_S));
+    if (leader_sequence_two_keys(KC_D, KC_D)) {
+        // Leader, d, d => delete whole field
+        SEND_STRING(SS_LCTL("a")"\b"); 
     }
-}*/
+    else if (leader_sequence_two_keys(KC_Y, KC_Y)) {
+        // Leader, y, y => Ctrl+A, Ctrl+C
+        SEND_STRING(SS_LCTL("ac"));
+    }
+    else if (leader_sequence_two_keys(KC_G, KC_T)) {
+        tap_code16(GU_TOGG);
+    }
+    else if (leader_sequence_two_keys(KC_A, KC_G)) {
+        tap_code16(AG_TOGG);
+    }
+    else if (leader_sequence_two_keys(KC_Q, KC_B)) {
+        register_code16(QK_BOOT);
+    }
+}
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
@@ -250,7 +177,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 
-// more complicated tap-hold settings
+// more complicated tap-hold settings <<<
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(3, KC_SPC):
@@ -269,9 +196,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         default:
             return false;
     }
-}
+}// >>>
 
-// layer indicator underglow
+/*// layer indicator underglow
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
    HSV hsv_bot = {0, 255, 255}; // init. underglow hsv value
    HSV hsv_top = {0, 255, 80}; // init. top hsv value
@@ -309,5 +236,5 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
          rgb_matrix_set_color(i, rgb_top.r, rgb_top.g, rgb_top.b); // assign converted rgb values to colour 
       }
    }  
-}
+}*/
 

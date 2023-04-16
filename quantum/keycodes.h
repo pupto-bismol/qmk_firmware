@@ -789,6 +789,7 @@ enum qk_keycode_defines {
 // Alias
     XXXXXXX    = KC_NO,
     _______    = KC_TRANSPARENT,
+    vvv        = KC_TRANSPARENT,
     KC_TRNS    = KC_TRANSPARENT,
     KC_ENT     = KC_ENTER,
     KC_ESC     = KC_ESCAPE,

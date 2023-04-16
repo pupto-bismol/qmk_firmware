@@ -16,7 +16,7 @@ LEADER_ENABLE = yes
 DEBOUNCE_TYPE = sym_defer_g
 #DEBOUNCE_TYPE = asym_eager_defer_pk
 
-TAP_DANCE_ENABLE = yes
+TAP_DANCE_ENABLE = no
 SPACE_CADET_ENABLE = no     # Space Cadet shifting
 GRAVE_ESCAPE_ENABLE = yes   # Grave/Escape thing
 MAGIC_ENABLE = yes          # NKRO and Alt/GUI toggles, etc.
@@ -24,4 +24,4 @@ COMBO_ENABLE = yes          # Allows the use of combos
 LTO_ENABLE = yes            # Makes compile longer for smaller file
 
 # enable combo file
-VPATH += keyboards/qmk/gboards
+VPATH += keyboards/gboards

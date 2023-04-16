@@ -15,7 +15,7 @@
  */
 #pragma once
 
-#include "config_common.h"
+//#include "config_common.h"
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -38,6 +38,7 @@
  */
 
 #define RGBLED_NUM 11
+#define RGB_MATRIX_LED_COUNT 11
 
 #define DRIVER_LED_TOTAL RGBLED_NUM
 

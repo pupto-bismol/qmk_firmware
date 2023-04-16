@@ -1,7 +1,7 @@
 switch (combo_index) {
   case clrline:
     if (pressed) {
-      SEND_STRING(SS_LCTL("a")"\b");
+      //SEND_STRING(SS_LCTL("a")"\b");
       break;
     }
   case brackets:

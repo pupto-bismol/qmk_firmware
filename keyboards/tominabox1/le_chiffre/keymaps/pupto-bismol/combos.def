@@ -7,12 +7,12 @@
 // deprecated combos
 //COMB(windows,    KC_LGUI,           OSL(1),  LT(3, KC_SPC))
 //COMB(sleep,      KC_SLEP,           KC_SLSH, KC_QUOT, MT(MOD_LGUI, KC_Z), KC_Q)
+//COMB(eeprst,     EEP_RST,           GUI_T(KC_Q), KC_W, KC_P, KC_B)
 
 //   name        result             chord keys
 COMB(boot,       QK_BOOT,           KC_Q, KC_C, KC_K, KC_QUOT)
-COMB(eeprst,     EEP_RST,           GUI_T(KC_Q), KC_W, KC_P, KC_B)
 COMB(clrline,    KC_NO,             KC_A,    OSL(1))
-//COMB(lead,       QK_LEAD,           LT(2, KC_SPC), OSL(1))
+COMB(lead,       QK_LEAD,           LT(2, KC_SPC), OSL(1))
 COMB(enter,      KC_ENT,            SFT_T(KC_COMM),  GUI_T(KC_DOT))
 COMB(brackets,   KC_NO,             OSL(1),  KC_QUOT)
 
