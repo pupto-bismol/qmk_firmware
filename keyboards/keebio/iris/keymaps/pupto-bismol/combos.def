@@ -1,0 +1,23 @@
+// const uint16_t PROGMEM boot_combo[] = {KC_ESC, KC_C, KC_M, KC_EQL, COMBO_END};
+// const uint16_t PROGMEM eeprst_combo[] = {KC_ESC, KC_3, KC_4, KC_5, COMBO_END};
+// const uint16_t PROGMEM cleartext_combo[] = {KC_BSPC, OSL(1), COMBO_END};
+// const uint16_t PROGMEM windows_combo[] = {OSL(1), KC_SPC, COMBO_END};
+// const uint16_t PROGMEM easy_enter[] = {KC_DOT, KC_COMM, COMBO_END};
+// const uint16_t PROGMEM sleep_combo[] = {KC_ESC, KC_LSFT, KC_EQL, KC_ENT, COMBO_END};
+
+// const uint16_t PROGMEM layer2_combo[] = {OSL(1), KC_E, COMBO_END};
+// const uint16_t PROGMEM layer6_combo[] = {OSL(1), KC_I, COMBO_END};
+// const uint16_t PROGMEM layer4_combo[] = {OSL(1), KC_O, COMBO_END};
+
+//   name        result             chord keys
+COMB(boot,       QK_BOOT,           MT(MOD_LGUI, KC_Q),    KC_C,    KC_K, KC_QUOT)
+COMB(eeprst,     EEP_RST,           MT(MOD_LGUI, KC_Q),    KC_W,    KC_P, KC_B)
+COMB(clrline,    KC_NO,             KC_A,    OSL(1))
+//COMB(windows,    KC_LGUI,           OSL(1),  LT(3, KC_SPC))
+COMB(enter,      KC_ENT,            SFT_T(KC_COMM), ALT_T(KC_DOT))
+COMB(sleep,      KC_SLEP,           KC_SLSH, KC_QUOT, MT(MOD_LGUI, KC_Z), KC_Q)
+COMB(brackets,   KC_NO,             OSL(1),  KC_QUOT)
+
+COMB(mousekey,   TO(6),             OSL(1),  KC_H)
+COMB(league,     TO(2),             OSL(1),  KC_2)
+COMB(gamer,      TO(4),             OSL(1),  KC_1)
