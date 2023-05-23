@@ -11,7 +11,7 @@
 
 //   name        result             chord keys
 COMB(boot,       QK_BOOT,           KC_Q, KC_C, KC_K, KC_QUOT)
-COMB(clrline,    KC_NO,             KC_A,    OSL(1))
+COMB(clrline,    KC_NO,             KC_Y,    KC_QUOT)
 COMB(lead,       QK_LEAD,           LT(2, KC_SPC), OSL(1))
 COMB(enter,      KC_ENT,            SFT_T(KC_COMM),  GUI_T(KC_DOT))
 COMB(brackets,   KC_NO,             OSL(1),  KC_QUOT)

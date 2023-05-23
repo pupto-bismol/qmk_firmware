@@ -28,38 +28,41 @@ enum custom_keycodes {
 };
 
 //kc shorthand <<<
-#define OS_C    OSM(MOD_LCTL)
-#define OS_S    OSM(MOD_LSFT)
-#define OS_RS   OSM(MOD_RSFT)
-#define OS_GUI  OSM(MOD_LGUI)
-#define OS_G    OSM(MOD_LGUI)
-#define OS_MEH  OSM(MOD_MEH)
-#define OS_HYPR OSM(MOD_HYPR)
-#define HOME    TO(0)
-#define SCSHOT  LSG(KC_S)
-#define zGUI    MT(MOD_LGUI, KC_Z)
-#define zCTL    CTL_T(KC_Z)
-#define qGUI    GUI_T(KC_Q)
-#define aGUI    GUI_T(KC_A)
-#define xALT    ALT_T(KC_X)
-#define xGUI    GUI_T(KC_X)
-#define vSFT    SFT_T(KC_V)
-#define dCTL    CTL_T(KC_D)
-#define dALT    ALT_T(KC_D)
-#define bspCTL  CTL_T(KC_BSPC)
-#define slshCTL CTL_T(KC_SLSH)
-#define dotALT  ALT_T(KC_DOT)
-#define dotGUI  GUI_T(KC_DOT)
-#define commSFT SFT_T(KC_COMM)
-#define hALT    ALT_T(KC_H)
-#define escGUI  GUI_T(KC_ESC)
-#define tabGUI  GUI_T(KC_TAB)
-#define pipeCTL CTL_T(KC_PIPE)
-#define minsALT ALT_T(KC_MINS)
-#define minsGUI GUI_T(KC_MINS)
-#define plusSFT SFT_T(KC_PLUS)
-#define tildALT ALT_T(KC_TILD)
-#define undsALT ALT_T(KC_UNDS)// >>>
+#define OS_C        OSM(MOD_LCTL)
+#define OS_S        OSM(MOD_LSFT)
+#define OS_RS       OSM(MOD_RSFT)
+#define OS_GUI      OSM(MOD_LGUI)
+#define OS_G        OSM(MOD_LGUI)
+#define OS_MEH      OSM(MOD_MEH)
+#define OS_HYPR     OSM(MOD_HYPR)
+#define HOME        TO(0)
+#define SCSHOT      LSG(KC_S)
+#define zGUI        MT(MOD_LGUI, KC_Z)
+#define zCTL        CTL_T(KC_Z)
+#define qGUI        GUI_T(KC_Q)
+#define aGUI        GUI_T(KC_A)
+#define xALT        ALT_T(KC_X)
+#define xGUI        GUI_T(KC_X)
+#define vSFT        SFT_T(KC_V)
+#define dCTL        CTL_T(KC_D)
+#define dALT        ALT_T(KC_D)
+#define dGUI        GUI_T(KC_D)
+#define bspCTL      CTL_T(KC_BSPC)
+#define slshCTL     CTL_T(KC_SLSH)
+#define dotALT      ALT_T(KC_DOT)
+#define dotGUI      GUI_T(KC_DOT)
+#define commSFT     SFT_T(KC_COMM)
+#define hALT        ALT_T(KC_H)
+#define hGUI        GUI_T(KC_H)
+#define escGUI      GUI_T(KC_ESC)
+#define tabGUI      GUI_T(KC_TAB)
+#define pipeCTL     CTL_T(KC_PIPE)
+#define minsALT     ALT_T(KC_MINS)
+#define minsGUI     GUI_T(KC_MINS)
+#define plusSFT     SFT_T(KC_PLUS)
+#define tildALT     ALT_T(KC_TILD)
+#define undsALT     ALT_T(KC_UNDS)
+#define f12ALT      ALT_T(KC_F12)// >>>
 
 // fix for mod taps with shifted keys, like KC_PIPE <<<
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -117,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┐        ┌────────┐        ┌────────┬────────┬────────┬────────┬────────┐
-     qGUI,    AG_TOGG, vvv,     vvv,     RGB_TOG,          KC_MPLY,          KC_DEL,  KC_HOME, KC_PGDN, KC_PGUP, KC_END, 
+     qGUI,    vvv,     vvv,     vvv,     RGB_TOG,          KC_MPLY,          KC_DEL,  KC_HOME, KC_PGDN, KC_PGUP, KC_END, 
   //├────────┼────────┼────────┼────────┼────────┤        └────────┘        ├────────┼────────┼────────┼────────┼────────┤
      vvv,     KC_LPRN, KC_RPRN, KC_COLN, KC_SCLN,                            KC_INS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, 
   //├────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┤
@@ -133,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┤        └────────┘        ├────────┼────────┼────────┼────────┼────────┤
      KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_F10,                             KC_F2,   KC_BTN1, KC_BTN2, KC_ACL0, KC_F7,   
   //├────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┤
-     zGUI,    xALT,    vSFT,    KC_F12,  KC_F11,                             KC_F3,   KC_ACL1, KC_ACL2, KC_F5,   KC_F8,  
+     zCTL,    xGUI,    vSFT,    f12ALT,  KC_F11,                             KC_F3,   KC_ACL1, KC_ACL2, KC_F5,   KC_F8,  
   //└────────┴────────┴────────┼────────┼────────┤                          ├────────┼────────┼────────┴────────┴────────┘
                                 vvv,     vvv,                                HOME,    vvv
                             // └────────┴────────┘                          └────────┴────────┘
