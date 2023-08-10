@@ -15,6 +15,7 @@
  */
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h"
+#include "aliases.h"
 
 enum layers{
   _BASE,
@@ -44,6 +45,7 @@ enum custom_keycodes {
 #define xALT        ALT_T(KC_X)
 #define xGUI        GUI_T(KC_X)
 #define vSFT        SFT_T(KC_V)
+#define wSFT        SFT_T(KC_W)
 #define dCTL        CTL_T(KC_D)
 #define dALT        ALT_T(KC_D)
 #define dGUI        GUI_T(KC_D)
@@ -104,8 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴────────┼────────┼────────┤                          ├────────┼────────┼────────┴────────┴────────┘
                                 bspCTL,  LT(2, KC_SPC),                      OSL(1),  OSM(MOD_LSFT)
                             // └────────┴────────┘                          └────────┴────────┘
-  ),
-
+                            
   [_NUM_SYM] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┐        ┌────────┐        ┌────────┬────────┬────────┬────────┬────────┐
      KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_MPLY,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR,
@@ -153,17 +154,21 @@ void leader_end_user(void) {
         // Leader, d, d => delete whole field
         SEND_STRING(SS_LCTL("a")"\b"); 
     }
-    else if (leader_sequence_two_keys(KC_Y, KC_Y)) {
+    else 
+    if (leader_sequence_two_keys(KC_Y, KC_Y)) {
         // Leader, y, y => Ctrl+A, Ctrl+C
         SEND_STRING(SS_LCTL("ac"));
     }
-    else if (leader_sequence_two_keys(KC_G, KC_T)) {
+    else 
+    if (leader_sequence_two_keys(KC_G, KC_T)) {
         tap_code16(GU_TOGG);
     }
-    else if (leader_sequence_two_keys(KC_A, KC_G)) {
+    else 
+    if (leader_sequence_two_keys(KC_A, KC_G)) {
         tap_code16(AG_TOGG);
     }
-    else if (leader_sequence_two_keys(KC_Q, KC_B)) {
+    else 
+    if (leader_sequence_two_keys(KC_Q, KC_B)) {
         register_code16(QK_BOOT);
     }
 }
