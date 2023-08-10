@@ -1,0 +1,21 @@
+// alternate reference layers (by layer)
+//                 Layer      Ref Layer
+//COMBO_REF_LAYER(  _NAV,       _NAV)
+//COMBO_REF_LAYER(  _NUM_SYM,   _NUM_SYM)
+//DEFAULT_REF_LAYER(_BASE)
+
+// deprecated combos
+//COMB(windows,    KC_LGUI,           OSL(1),  LT(3, KC_SPC))
+//COMB(sleep,      KC_SLEP,           KC_SLSH, KC_QUOT, MT(MOD_LGUI, KC_Z), KC_Q)
+//COMB(eeprst,     EEP_RST,           GUI_T(KC_Q), KC_W, KC_P, KC_B)
+
+//   name        result             chord keys
+COMB(boot,       QK_BOOT,           KC_Q, KC_C, KC_K, KC_QUOT)
+COMB(clrline,    KC_NO,             KC_Y,    KC_QUOT)
+//COMB(lead,       QK_LEAD,           LT(2, KC_SPC), OSL(1))
+COMB(enter,      KC_ENT,            SFT_T(KC_COMM),  GUI_T(KC_DOT))
+COMB(brackets,   KC_NO,             OSL(1),  KC_QUOT)
+
+COMB(mousekey,   TO(3),             OSL(1),  ALT_T(KC_H))
+COMB(esc,        KC_ESC,            KC_L, KC_M)
+COMB(tab,        KC_TAB,            KC_Q, KC_C)

@@ -1,0 +1,17 @@
+//  DEMO OF FEATURE:
+//
+//
+//  AK_BOTH_START(KC_J, KC_SCLN) // make keycode J adaptive,
+//    R_FST(KC_A, KC_J) // if A is pressed within ADAPTIVE_TERM, send JA instead
+//    R_FST(KC_E, KC_J) // same goes for rest
+//    R_FST(KC_I, KC_J)
+//    R_FST(KC_O, KC_J)
+//    R_FST(KC_U, KC_J)
+//    R_BTH(KC_DOT, KC_Q, KC_U) // if . is pressed within ADAPTIVE_TERM, send QU instead
+//
+//  AK_SND_ONLY_START(KC_A) // sends A immediately
+//    R_SND(KC_SLASH, KC_U) // if / is pressed within ADAPTIVE_TERM, send U instead/
+
+
+AK_SND_ONLY_START(KC_P)
+  R_SND(KC_Q, KC_H)
