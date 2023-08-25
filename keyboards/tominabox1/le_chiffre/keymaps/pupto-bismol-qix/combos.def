@@ -10,7 +10,7 @@
 //COMB(eeprst,     EEP_RST,           GUI_T(KC_Q), KC_W, KC_P, KC_B)
 
 //   name        result             chord keys
-COMB(boot,       QK_BOOT,           KC_Q, KC_C, KC_K, KC_QUOT)
+COMB(boot,       QK_BOOT,           KC_Q, KC_V, KC_B, KC_QUOT)
 COMB(clrline,    KC_NO,             KC_Y,    KC_QUOT)
 //COMB(lead,       QK_LEAD,           LT(2, KC_SPC), OSL(1))
 COMB(enter,      KC_ENT,            SFT_T(KC_COMM),  GUI_T(KC_DOT))

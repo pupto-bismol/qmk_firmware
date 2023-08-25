@@ -17,7 +17,7 @@
 
 
 // custom defines
-#define ADAPTIVE_TERM 140
+#define ADAPTIVE_TERM 400
 #define ONESHOT_TIMEOUT 220
 #define ONESHOT_TAP_TOGGLE 3
 #define LEADER_TIMEOUT 600
@@ -37,23 +37,23 @@
 #define MK_3_SPEED
 #define MK_MOMENTARY_ACCEL
 
-#define MK_C_OFFSET_UNMOD    8  //Cursor offset per movement (unmodified)
-#define MK_C_INTERVAL_UNMOD  8  //Time between cursor movements (unmodified)
-#define MK_C_OFFSET_0        4  //Cursor offset per movement (0)
-#define MK_C_INTERVAL_0      8  //Time between cursor movements (0)
+#define MK_C_OFFSET_UNMOD    6  //Cursor offset per movement (unmodified)
+#define MK_C_INTERVAL_UNMOD  1  //Time between cursor movements (unmodified)
+#define MK_C_OFFSET_0        3  //Cursor offset per movement (0)
+#define MK_C_INTERVAL_0      1  //Time between cursor movements (0)
 #define MK_C_OFFSET_1       16  //Cursor offset per movement (1)
-#define MK_C_INTERVAL_1      8  //Time between cursor movements (1)
+#define MK_C_INTERVAL_1      1  //Time between cursor movements (1)
 #define MK_C_OFFSET_2        2  //Cursor offset per movement (2)
-#define MK_C_INTERVAL_2      8  //Time between cursor movements (2)
+#define MK_C_INTERVAL_2      1  //Time between cursor movements (2)
 
 #define MK_W_OFFSET_UNMOD    1  //Scroll steps per scroll action (unmodified)
 #define MK_W_INTERVAL_UNMOD 40  //Time between scroll steps (unmodified)
 #define MK_W_OFFSET_0        1  //Scroll steps per scroll action (0)
-#define MK_W_INTERVAL_0    360  //Time between scroll steps (0)
+#define MK_W_INTERVAL_0     80  //Time between scroll steps (0)
 #define MK_W_OFFSET_1        1  //Scroll steps per scroll action (1)
-#define MK_W_INTERVAL_1    120  //Time between scroll steps (1)
+#define MK_W_INTERVAL_1     20  //Time between scroll steps (1)
 #define MK_W_OFFSET_2        1  //Scroll steps per scroll action (2)
-#define MK_W_INTERVAL_2     20  //Time between scroll steps (2)
+#define MK_W_INTERVAL_2    160  //Time between scroll steps (2)
 
 //space saving defines
 #undef LOCKING_SUPPORT_ENABLE  // locking keys
