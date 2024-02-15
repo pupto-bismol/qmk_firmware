@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┤
      zCTL,    xGUI,    wSFT,    dALT,    KC_V,                               KC_B,    hALT,    commSFT, dotGUI,  slshCTL,
   //└────────┴────────┴────────┼────────┼────────┤                          ├────────┼────────┼────────┴────────┴────────┘
-                                OS_C,    LT(2, KC_SPC),                      OSL(1),  OS_S
+                                MT(MOD_LCTL, KC_ESC),   LT(2, KC_SPC),                      OSL(1),  OS_S
                             // └────────┴────────┘                          └────────┴────────┘
   ),
 
